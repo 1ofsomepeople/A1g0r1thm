@@ -5,22 +5,22 @@ def quicksort(arr:list, left:int, right:int):
     return
   p_idx = random.randint(left, right)
   l, r = left, right
-  while left<right:
+  while l < r:
     # 此处完成一次"移动指针"或"交换pivot"操作
-    if left<p_idx:
-      if arr[left]<arr[p_idx]:
-        left += 1
+    if l<p_idx:
+      if arr[l]<arr[p_idx]:
+        l += 1
       else:
-        arr[left], arr[p_idx] = arr[p_idx], arr[left]
-        p_idx = left
+        arr[l], arr[p_idx] = arr[p_idx], arr[l]
+        p_idx = l
     else:
-      if arr[right]>=arr[p_idx]:
-        right -= 1
+      if arr[r]>=arr[p_idx]:
+        r -= 1
       else:
-        arr[right], arr[p_idx] = arr[p_idx], arr[right]
-        p_idx = right
-  quicksort(arr, l, p_idx)
-  quicksort(arr, p_idx+1, r)
+        arr[r], arr[p_idx] = arr[p_idx], arr[r]
+        p_idx = r
+  quicksort(arr, left, p_idx)
+  quicksort(arr, p_idx+1, right)
 
 arr = [random.randint(0,99) for _ in range(20)]
 print(arr) 
