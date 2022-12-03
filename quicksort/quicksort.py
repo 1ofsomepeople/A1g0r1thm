@@ -22,7 +22,7 @@ def quicksort(arr:list, left:int, right:int):
   quicksort(arr, left, p_idx)
   quicksort(arr, p_idx+1, right)
 
-arr = [random.randint(0,99) for _ in range(20)]
+arr = random.choices(range(0, 99), k=20) 
 print(arr) 
 print(sorted(arr))
 quicksort(arr, 0, len(arr)-1)
